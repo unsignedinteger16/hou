@@ -142,6 +142,7 @@ static void append_to_da_general(da_general* da, size_t element_sizeof, const vo
       free(da->arr);
       fail_if(true, "Allocaton Error");
     }
+    da->arrAllocated += HOU_DA_CHUNK_SIZE;
     da->arr == realloced;
   }
 
@@ -158,6 +159,7 @@ static void remove_last_from_da_general(da_general* da, size_t element_sizeof) {
       free(da->arr);
       fail_if(true, "Allocaton Error");
     }
+    da->arrAllocated -= HOU_DA_CHUNK_SIZE;
     da->arr == realloced;
   }
 }
@@ -170,6 +172,7 @@ static void insert_da_general(da_general* da, size_t element_sizeof, const void*
       free(da->arr);
       fail_if(true, "Allocaton Error");
     }
+    da->arrAllocated += HOU_DA_CHUNK_SIZE;
     da->arr == realloced;
   }
 
@@ -195,6 +198,7 @@ static void remove_from_index_da_general(da_general* da, size_t element_sizeof, 
       free(da->arr);
       fail_if(true, "Allocaton Error");
     }
+    da->arrAllocated -= HOU_DA_CHUNK_SIZE;
     da->arr == realloced;
   }
 }
